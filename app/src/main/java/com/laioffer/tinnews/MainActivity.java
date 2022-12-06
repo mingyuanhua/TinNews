@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.d("MainActivity", "onCreate");
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
@@ -45,22 +46,7 @@ public class MainActivity extends AppCompatActivity {
         // if (task success) newsResponseCallback.onResponse()
         // else newsResponseCallback.onFailure()
 
-        NewsApi api = RetrofitClient.newInstance().create(NewsApi.class);
-        // Call<NewsResponse>
-        api.getTopHeadlines("us").enqueue(new Callback<NewsResponse>() {
-            @Override
-            public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
-                if (response.isSuccessful()) {
-                    Log.d("getTopHeadlines", response.body().toString());
-                } else {
-                    Log.d("getTopHeadlines", response.toString());
-                }
-            }
-            @Override
-            public void onFailure(Call<NewsResponse> call, Throwable t) {
-                Log.d("getTopHeadlines", t.toString());
-            }
-        });
+
 
     }
 

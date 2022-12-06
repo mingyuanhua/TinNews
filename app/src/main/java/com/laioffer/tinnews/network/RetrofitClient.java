@@ -27,7 +27,6 @@ public class RetrofitClient {
     }
 
     private static class HeaderInterceptor implements Interceptor {
-
         @Override
         public Response intercept(Chain chain) throws IOException {
             Request original = chain.request();
