@@ -33,6 +33,9 @@ android {
 }
 
 dependencies {
+    // card stack view
+    implementation files("libs/card-stack-view-2.3.4.aar")
+
     // picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
