@@ -16,7 +16,7 @@ public interface ArticleDao {
     void saveArticle(Article article);
 
     @Query("SELECT * FROM Article")
-    LiveData<List<Article>> getArticles();
+    LiveData<List<Article>> getAllArticles();
 
     @Delete
     void deleteArticle(Article article);
