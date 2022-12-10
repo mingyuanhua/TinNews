@@ -67,8 +67,8 @@ public class NewsRepository {
         return everythingLiveData;
     }
 
-    private static class FavoriteAsyncTask extends AsyncTask<Article, Void, Boolean> {
-
+    // Use MyAsyncTask rather than AsyncTask
+    private static class FavoriteAsyncTask extends MyAsyncTask<Article, Void, Boolean> {
         private final TinNewsDatabase database;
         private final MutableLiveData<Boolean> liveData;
 
@@ -77,9 +77,19 @@ public class NewsRepository {
             this.liveData = liveData;
         }
 
+//        @Override
+//        protected Boolean doInBackground(Article... articles) {
+//            Article article = articles[0];
+//            try {
+//                database.articleDao().saveArticle(article);
+//            } catch (Exception e) {
+//                return false;
+//            }
+//            return true;
+//        }
+
         @Override
-        protected Boolean doInBackground(Article... articles) {
-            Article article = articles[0];
+        protected Boolean doInBackground(Article article) {
             try {
                 database.articleDao().saveArticle(article);
             } catch (Exception e) {
