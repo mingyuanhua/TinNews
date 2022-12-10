@@ -66,5 +66,9 @@ public class CardSwipeAdapter extends RecyclerView.Adapter<CardSwipeAdapter.Card
     public int getItemCount() {
         return articles.size();
     }
+
+    public List<Article> getArticles() {
+        return articles;
+    }
 }
 
